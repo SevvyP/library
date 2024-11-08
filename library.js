@@ -6,6 +6,14 @@ function Book(title, author, read) {
   this.read = read;
 }
 
+// ham menu
+const hamMenu = document.querySelector("#ham-menu");
+const offScreenMenu = document.querySelector("#off-screen-menu");
+hamMenu.addEventListener("click", () => {
+  offScreenMenu.classList.toggle("active");
+  hamMenu.classList.toggle("active");
+});
+
 function addBookToLibrary(book) {
   library.push(book);
 }
@@ -15,7 +23,7 @@ displayBooks();
 
 function displayBooks() {
   const books = document.querySelector("#books");
-  books.innerHTML = (library.length == 0) ? "Add a book to the library!" : "";
+  books.innerHTML = library.length == 0 ? "Add a book to the library!" : "";
 
   library.forEach((book, index) => {
     const table = document.createElement("table");
@@ -24,9 +32,9 @@ function displayBooks() {
       <th>Title</th>
       <th>Author</th>
       <th>Read</th>
-    `
+    `;
 
-    const tableBody = document.createElement("tbody")
+    const tableBody = document.createElement("tbody");
     const row = document.createElement("tr");
 
     const title = document.createElement("td");
@@ -48,8 +56,7 @@ function displayBooks() {
     row.appendChild(remove);
 
     const markRead = document.createElement("td");
-    const markReadButton = document.createElement("button");
-  markRead.innerHTML = `<button type="button" onclick="markRead(${index})">Mark Read</button>`;
+    markRead.innerHTML = `<button type="button" onclick="markRead(${index})">Mark Read</button>`;
     row.appendChild(markRead);
 
     tableBody.appendChild(row);
@@ -60,7 +67,7 @@ function displayBooks() {
 
 function displayBookForm() {
   const form = document.getElementById("bookForm");
-  form.innerHTML = ''; // Clear existing content
+  form.innerHTML = ""; // Clear existing content
 
   const titleLabel = document.createElement("label");
   titleLabel.htmlFor = "title";
@@ -131,7 +138,7 @@ function markRead(index) {
 
 function updateBookList(books) {
   const tableBody = document.getElementById("tableBody");
-  tableBody.innerHTML = ''; // Clear existing content
+  tableBody.innerHTML = ""; // Clear existing content
 
   books.forEach((book, index) => {
     const row = document.createElement("tr");

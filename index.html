@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="sidebar">
-      <button id="addBook" onclick="displayBookForm()">Add Book</button>
-      <form action="" id="bookForm"></form>
+    <div id="nav-bar">
+      <nav>
+        <div id="ham-menu"><span></span><span></span><span></span></div>
+      </nav>
     </div>
     <div id="content">
+      <div id="off-screen-menu">
+        <ul>
+          <li>
+            <button id="addBook" onclick="displayBookForm()">Add Book</button>
+          </li>
+          <li><form action="" id="bookForm"></form></li>
+        </ul>
+      </div>
       <h1>Books</h1>
       <div id="books"></div>
     </div>

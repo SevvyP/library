@@ -1,17 +1,116 @@
-#sidebar {
+#off-screen-menu {
+  height: 100vh;
+  width: 100%;
+  max-width: 300px;
+  background-color: lightblue;
+  position: fixed;
+  right: -300px;
   display: flex;
   flex-direction: column;
-  width: 200px;
-  padding-top: 40px;
-  background-color: lightblue;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+#off-screen-menu.active {
+  right: 0;
+}
+
+nav {
+  padding: 1rem;
+  display: flex;
+  background-color: black;
+}
+
+#ham-menu {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  position: relative;
+}
+
+#ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+
+#ham-menu span:nth-child(1) {
+  top: 25%;
+}
+
+#ham-menu span:nth-child(3) {
+  top: 75%;
+}
+
+#ham-menu.active span {
+  background-color: white;
+}
+
+#ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  font-family: sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+#bookForm {
+  text-align: right;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+#content {
+  padding-left: 20px;
+}
+
+table {
+  background: none !important;
+  border: none !important;
+}
+
+tr {
+  display: inline-block;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  margin: 1.5rem;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+}
+
+td {
+  display: block;
+}
+
+thead,
+tfoot {
+  display: none;
 }
